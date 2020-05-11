@@ -1,0 +1,113 @@
+--show tables;
+	/*create table recetas (id_receta int  AUTO_INCREMENT primary key, nombre varchar(40));*/
+	/*create table ingredientes_x_receta (fk_id_ingredientes int not null, fk_id_receta int not null,
+		cantidad float,
+		primary key(fk_id_receta,fk_id_ingredientes),
+		foreign key(fk_id_receta) references recetas(id_receta),
+		foreign key(fk_id_ingredientes) references ingredientes (id_ingredientes));*/
+	--show columns  from ingredientes_x_receta;
+		/*create table IF not exists cervezas (id_cerveza int  AUTO_INCREMENT primary key, nombre varchar(40), descripcion varchar(500),
+		fk_id_receta int not null,
+		foreign key (fk_id_receta) references recetas (id_receta));*/
+		/*
+		INGRESO DE INGREDIENTES
+		insert into ingredientes(nombre,cantidad) values ("malta base",500);
+			
+		
+		--update ingredientes  set cantidad = 400 where id_ingredientes=1;
+		--         INGRESO DE ingredientes_x_receta 
+		--insert into ingredientes_x_receta(fk_id_ingredientes,fk_id_receta,cantidad) values (1,11,10);
+		--select * from ingredientes_x_receta;
+		--select * from recetas;
+		--select * from ingredientes;
+		--insert into ingredientes_x_receta(fk_id_ingredientes,fk_id_receta,cantidad) values (4,1,10);
+		
+		--insert into ingredientes_x_receta(fk_id_ingredientes,fk_id_receta,cantidad) values (9,3,10);
+	    --insert into ingredientes_x_receta(fk_id_ingredientes,fk_id_receta,cantidad) values (10,1,10);
+	    --insert into ingredientes_x_receta(fk_id_ingredientes,fk_id_receta,cantidad) values (11,5,10);
+	    --insert into ingredientes_x_receta(fk_id_ingredientes,fk_id_receta,cantidad) values (10,4,10);
+	    --insert into ingredientes_x_receta(fk_id_ingredientes,fk_id_receta,cantidad) values (7,4,10);
+	    --insert into ingredientes_x_receta(fk_id_ingredientes,fk_id_receta,cantidad) values (8,4,10);
+	    --insert into ingredientes_x_receta(fk_id_ingredientes,fk_id_receta,cantidad) values (6,2,10);
+	    --insert into ingredientes_x_receta(fk_id_ingredientes,fk_id_receta,cantidad) values (2,1,10);
+	    --insert into ingredientes_x_receta(fk_id_ingredientes,fk_id_receta,cantidad) values (4,4,10);
+	    ---	INGRESO DE CERVEZAS	
+	    --select * from cervezas;
+	    --nombre varchar(40), descripcion varchar(500)
+	    --insert into cervezas(nombre,descripcion,fk_id_receta) values("honey","cerveza a base de miel",2);
+	    --insert into cervezas(nombre,descripcion,fk_id_receta) values("porter","negra",4);
+	    --insert into cervezas(nombre,descripcion,fk_id_receta) values("atomica","te re pega",5);
+	    --insert into cervezas(nombre,descripcion,fk_id_receta) values("scotish","facil de tomar",1);
+	    --insert into cervezas(nombre,descripcion,fk_id_receta) values("IPa","ipaaa",3);
+	    --insert into cervezas(nombre,descripcion,fk_id_receta) values("3 metros","de antares",2);
+	    --insert into cervezas(nombre,descripcion,fk_id_receta) values("Korch","roja",1);
+	    --insert into cervezas(nombre,descripcion,fk_id_receta) values("Barley Wine","alto grado",4);
+	    --insert into cervezas(nombre,descripcion,fk_id_receta) values("Old Ale","pega mas q la anterior",3);	
+
+	    -- MOSTRAR TODOS LOS INGREDIENTES
+	    --select * from ingredientes;
+
+	    -- MOSTRAR TODAS LAS CERVEZAS
+	    --select * from cervezas where graduacion>=9;
+	    --update ingredientes  set cantidad = 400 where id_ingredientes=1;;
+
+		-- MOSTRAR STOCK MAYOR A 500
+		--select * from ingredientes where cantidad >500;
+
+		--alter table cervezas add graduacion float not null;
+		--update cervezas  set graduacion = 9 where id_cerveza=3;
+		--update cervezas  set graduacion = 5 where id_cerveza=4;
+		--update cervezas  set graduacion = 4 where id_cerveza=5;
+		--update cervezas  set graduacion = 12 where id_cerveza=6;
+		--update cervezas  set graduacion = 15 where id_cerveza=7;
+		--update cervezas  set graduacion = 7 where id_cerveza=8;
+		--update cervezas  set graduacion = 8 where id_cerveza=9;	
+		--update cervezas  set graduacion = 9 where id_cerveza=10;
+		--update cervezas  set graduacion = 10 where id_cerveza=11;	
+		
+		-- mostrar solo nombre y cantidad de ingredientes
+		--select nombre,cantidad from ingredientes;
+		
+		-- mostrar los primero 3 ingredientes
+		
+		--select * from ingredientes limit 4,6;
+
+		-- MOSTRAR LOS ULTIMOS 2 INGREDIENTES
+		--select * from ingredientes order by id_ingredientes desc limit 2;
+		
+		-- mostrar todas las sumas de los ingredientes
+		--select count(cantidad) from ingredientes;
+		
+		-- mostrar la cantidad promedio de los ingredientes
+		--select avg(cantidad) from  ingredientes;
+		
+		-- eliminar ingredientes stock sea menor a 
+		--select * from ingredientes;
+		
+		-- imposible jajaja
+		--delete from ingredientes where cantidad<500;
+		
+		-- mostrar solo el nombre de las cervezas ordenadas alfabeticamente
+		--select nombre from cervezas order by nombre;
+		
+		-- mostrar los ingredientes ordenados por mayor cantidad
+		--select nombre,cantidad from ingredientes  order by cantidad desc;
+
+		-- mostrar el ingrediente con mayor stock
+		--select min(cantidad) from ingredientes; 
+
+		--1.Mostrar la información de todas las
+	    --  cervezas junto con el respectivo nombre de su receta segun corresponda.
+
+	    --select c.nombre, c.fk_id_receta, r.nombre from CERVEZAS c INNER JOIN RECETAS r ON c.id_cerveza = r.id_receta;
+	    	--select * from CERVEZAS;
+	    -- 2. listar 3 de las recetas que contengan mas de 5 ingredientes.
+	    /* select count(ing.id_ingredientes) as cantidad, i.fk_id_receta ,r.nombre 
+	    from ingredientes_x_receta i
+	    INNER JOIN ingredientes ing on (ing.id_ingredientes=i.fk_id_ingredientes)
+	    INNER JOIN RECETAS r on (i.fk4_id_receta=r.id_receta)
+	 	where r.nombre like 'b%'
+	 	group by i.fk_id_receta
+	 	having count(ing.id_ingredientes) > 1; */
+	 	-- 3. ordenar los ingredientes de cada receta
+	 	-- junto con el nombre de cada ingrediente de forma descendente.
