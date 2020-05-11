@@ -1,0 +1,103 @@
+para crear un proyecto en laravel:
+
+$ composer create-project --prefer-dist laravel/laravel mi-proyecto
+
+para iniciar el proyecto es :
+
+$ php artisan serve
+
+para saber todo los comandos de artisan
+
+php artisan list
+
+tira todo los comandos q se peuden hacer
+
+
+
+para cambiar de nombre al proyecto
+
+php artisan app:name loQueQuieras
+
+------------------------------- Rutas ------------------------------------------
+Rutas: 
+
+Route::get('/mi_primer_ruta', function() {
+    return 'hello word.';
+});
+
+Route::get('/name/{name}', function($name) {
+    return 'hello word soy' . $name;
+});
+
+Route::get('/name/{name}/lastname/{lastname?}', function($name, $lastname= null) {
+    return 'hello word soy' . $name . $lastname;
+});
+
+
+
+Route::get('/name/{name}/lastname/{lastname?}', function($name, $lastname= 'apellido') {
+    return 'hello word soy' . $name . $lastname;
+});
+--------------------------------Controllers --------------------------------------
+
+para ahcer un controlador
+
+php artisan make:controller -h 
+
+nos tira los argumetnos q necesitamos para generar un controlador
+
+ php artisan make:controller TrainerController --resource
+
+Route::resource('trainers', TrainerController)
+	* trainers -> es el nombre del recurso
+	* http://127.0.0.1:8000/trainers
+
+
+------------ Request --------------------
+//devuelve solo el nombre
+ 
+       return $request->input('name');
+
+//devuelve todo
+        
+	return $request->all();
+
+--------- Modelo-----------------
+todos los modelos van en singular: para crear tmb las migraciones
+
+php artisan make:model Trainer --migration
+php artisan make:model Trainer -m
+
+------Migraciones----------------
+
+https://laravel.com/docs/5.7/migrations
+con esto hacemos una nueva migracion pasandole el nombre de la migracion
+y a la tabla a la cual vamos a agregar el campo
+	* php artisan make:migration add_avatar_to_trainer_table --table=trainers
+	*php artisan migrate ejecuta las migraciones
+
+
+------------config ------------------
+class AppServiceProvider extends ServiceProvider
+	*boot
+		*
+------------hacer un update---------
+modoficar en el modelo los campos q vamos a actualizar.
+en el update
+
+-------------- Login --------------------
+php artisan make:auth
+
+-------------Roles------------------------
+
+$ php artisan make:seeder RoleTableSeeder
+ php artisan make:seeder UserTableSeeder
+
+13/06/2019 $44040.47 min 960.00
+
+----------- Seeder --------
+php artisan make:seeder ProductsTableSeeder
+
+----------- Factories ----------
+php artisan make:factory ProductFactory
+
