@@ -1,0 +1,3 @@
+este sirve para q tu carpeta public sea puclic y no public_html
+
+tener en cuenta
